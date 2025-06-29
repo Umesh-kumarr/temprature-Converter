@@ -4,34 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Temperature Converter</h2>
-        <div class="both">
-        <div class="temperature">
-            <input type="number" id="temperature" placeholder="Enter Temperature">
-            <select id="fromUnit">
-                <option value="C">Celcius</option>
-                <option value="K">kelvin</option>
-                <option value="F">Fahrenheit</option>
-            </select>
-        </div>
-        <i class='fas fa-equals'></i>
-        <div class=" result">
-            <input type="text" id="result" readonly>
-            <select id="toUnit">
-                <option value="C">Celcius</option>
-                <option value="K">kelvin</option>
-                <option value="F">Fahrenheit</option>
-            </select>
+    <div class="container">
+        <div class="converter-card">
+            <header class="card-header">
+                <i class="fas fa-thermometer-half header-icon"></i>
+                <h1>Temperature Converter</h1>
+                <p>Convert between Celsius, Fahrenheit, and Kelvin</p>
+            </header>
+            
+            <main class="converter-form">
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="temperature" class="input-label">
+                            <i class="fas fa-temperature-high"></i>
+                            Temperature
+                        </label>
+                        <input 
+                            type="number" 
+                            id="temperature" 
+                            placeholder="Enter temperature" 
+                            step="any"
+                            class="temperature-input"
+                        >
+                    </div>
+                    
+                    <div class="unit-selector">
+                        <label for="fromUnit" class="select-label">From</label>
+                        <select id="fromUnit" class="unit-select">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="conversion-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="output-section">
+                    <div class="input-group">
+                        <label for="result" class="input-label">
+                            <i class="fas fa-calculator"></i>
+                            Result
+                        </label>
+                        <input 
+                            type="text" 
+                            id="result" 
+                            readonly 
+                            class="result-input"
+                            placeholder="Converted temperature"
+                        >
+                    </div>
+                    
+                    <div class="unit-selector">
+                        <label for="toUnit" class="select-label">To</label>
+                        <select id="toUnit" class="unit-select">
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="C">Celsius (°C)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                </div>
+            </main>
+            
+            <div class="action-section">
+                <button onclick="convert()" class="convert-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    Convert
+                </button>
+            </div>
+            
+            <div class="info-section">
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> Quick Facts</h3>
+                    <ul>
+                        <li>Water freezes at 0°C / 32°F / 273.15K</li>
+                        <li>Water boils at 100°C / 212°F / 373.15K</li>
+                        <li>Absolute zero is -273.15°C / -459.67°F / 0K</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <button onclick="convert()">Convert</button>
-    </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
